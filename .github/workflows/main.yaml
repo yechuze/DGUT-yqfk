@@ -1,6 +1,16 @@
 name: main
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 21,4 * * *' #北京时间5点30打卡，和12点半
+  workflow_dispatch:
+  watch:
+    types: started
+  repository_dispatch:
+    types: node
 
 jobs:
   build:
